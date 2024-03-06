@@ -1,28 +1,22 @@
-import logo from '../../assets/logo.svg';
+import { Provider } from 'react-redux';
+// import './styles.css';
+import TaskForm from '../TaskForm/TaskForm';
+import TasksHeader from '../TasksHeader/TasksHeader';
+import TasksList from '../TasksList/TasksList';
+import store from '../redux/store';
 
-import './App.scss';
-
-function App() {
+export default function App() {
   return (
-    <div className="app">
-      <header className="app-header">
-        <img src={logo} className="app-logo" alt="logo" />
-
-        <p>
-          Edit <code>src/components/App/App.tsx</code> and save to reload.
-        </p>
-
-        <a
-          className="app-link"
-          href="https://react.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="container">
+        <article>
+          <TasksHeader />
+          <TasksList />
+          <footer>
+            <TaskForm />
+          </footer>
+        </article>
+      </div>
+    </Provider>
   );
 }
-
-export default App;
